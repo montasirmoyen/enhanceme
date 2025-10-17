@@ -1,20 +1,42 @@
 'use client';
 
 import { Sparkles, Target, TrendingUp } from 'lucide-react';
-import pdfToText from 'react-pdftotext'
-
 import React from 'react';
+import mammoth from 'mammoth';
+import pdfToText from 'react-pdftotext';
 
-function extractText(event: React.ChangeEvent<HTMLInputElement>) {
+async function extractText(event: React.ChangeEvent<HTMLInputElement>) {
   const files = event.target.files;
   if (!files || files.length === 0) {
     console.error("No file selected");
     return;
   }
+  
   const file = files[0];
-  pdfToText(file)
-    .then(text => console.log(text))
-    .catch(error => console.error("Text extraction failed", error));
+  const fileType = file.type;
+  
+  try {
+    let extractedText = '';
+    
+    if (fileType === 'application/pdf') { // pdf
+      extractedText = await pdfToText(file);
+    } else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') { // docx
+      const arrayBuffer = await file.arrayBuffer();
+      const result = await mammoth.extractRawText({ arrayBuffer });
+      extractedText = result.value;
+    } else if (fileType === 'text/plain') { // other
+      extractedText = await file.text();
+    } else {
+      console.error("Unsupported file type:", fileType);
+      alert("Please upload a PDF, DOCX, or TXT file.");
+      return;
+    }
+    
+    console.log(extractedText);
+  } catch (error) {
+    console.error("Text extraction failed", error);
+    alert("Failed to extract text from file. Please try again.");
+  }
 }
 
 export default function Home() {
@@ -36,7 +58,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Enhance Your Resume with
@@ -81,25 +103,26 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <div className="mb-12">
-          <div className="flex flex-col items-center justify-center p-10 border-2 border-dashed border-purple-300 rounded-2xl bg-purple-50 hover:bg-purple-100 transition">
-            <input
-              type="file"
-              accept=".pdf,.docx,.txt"
-              onChange={extractText}
-              className="hidden"
-              id="resumeUpload"
-            />
-            <label
-              htmlFor="resumeUpload"
-              className="cursor-pointer text-purple-700 font-medium"
-            >
-              Click to upload your resume
-            </label>
-          </div>
-        </div>
       </main>
+
+      <div className="max-w-xl mx-auto">
+        <div className="flex flex-col items-center justify-center p-10 border-2 border-dashed border-purple-300 rounded-2xl bg-purple-50 hover:bg-purple-100 transition">
+          <input
+            type="file"
+            accept=".pdf,.docx,.txt"
+            onChange={extractText}
+            className="hidden"
+            id="resumeUpload"
+          />
+          <label
+            htmlFor="resumeUpload"
+            className="cursor-pointer text-purple-700 font-medium"
+          >
+            Click to upload your resume
+          </label>
+          <div id="fileContent"></div>
+        </div>
+      </div>
     </div>
   );
 }
