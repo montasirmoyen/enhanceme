@@ -68,11 +68,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <header className="bg-gradient-to-b from-purple-700 via-purple-500 to-purple-500/25 text-white shadow-lg">
+      <header className="shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center h-20">
-        <div className="flex items-center space-x-3">
-          <Image className="p-2" src="/sparkle.png" alt="Sparkle" width={50} height={50} />
+        <div className="flex items-center">
+          <Image className="p-2" src="/logo.png" alt="Sparkle" width={50} height={50} />
           <h1 className="text-2xl font-bold">enhanceme</h1>
         </div>
           </div>
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="text-center mb-16 mt-4">
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
                 Enhance Your Resume with
-                <span className="text-transparent bg-clip-text bg-gradient-to-b from-purple-600 to-purple-500/50">
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-green-500 to-green-500/25">
                   {' '}AI
                 </span>
               </h2>
@@ -95,8 +95,8 @@ export default function Home() {
               </p>  */}
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-                <div className="flex flex-col items-center p-8 rounded-2xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="p-4 rounded-full bg-purple-500/75 mb-6">
+                <div className="flex flex-col items-center p-8 rounded-2xl bg-white border border-green-100 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="p-4 rounded-full bg-green-400/75 mb-6">
                     <Lightbulb className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Smart Analysis</h3>
@@ -105,21 +105,21 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="flex flex-col items-center p-8 rounded-2xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="p-4 rounded-full bg-purple-500/75 mb-6">
+                <div className="flex flex-col items-center p-8 rounded-2xl bg-white border border-green-100 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="p-4 rounded-full bg-green-400/75 mb-6">
                     <Book className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Detailed Ratings</h3>
                   <p className="text-gray-600 text-center leading-relaxed">
-                    Get specific scores and insights across multiple resume dimensions
+                    Get specific ratings and insights across multiple resume dimensions
                   </p>
                 </div>
 
-                <div className="flex flex-col items-center p-8 rounded-2xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="p-4 rounded-full bg-purple-500/75 mb-6">
+                <div className="flex flex-col items-center p-8 rounded-2xl bg-white border border-green-100 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="p-4 rounded-full bg-green-400/75 mb-6">
                     <Star className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Actionable Insights</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Realistic Insights</h3>
                   <p className="text-gray-600 text-center leading-relaxed">
                     Receive personalized recommendations to optimize your resume's impact
                   </p>
@@ -146,7 +146,7 @@ export default function Home() {
               </div>
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-4 py-2 text-purple-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-colors"
               >
                 <RefreshCw className="w-4 h-4" />
                 Analyze Another Resume

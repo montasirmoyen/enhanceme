@@ -61,9 +61,9 @@ export const FileUpload: React.FC<FileUploadProps> = ({
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div
-        className={`relative border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-200 ${selectedFile
-            ? 'border-purple-300 bg-purple-50'
-            : 'border-purple-300 bg-purple-50 hover:bg-purple-100 hover:border-purple-400'
+        className={`relative border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-200  ${selectedFile
+            ? 'border-green-300 bg-green-50'
+            : 'border-green-300 bg-green-50 hover:bg-green-100 hover:border-green-400'
           }`}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
@@ -80,7 +80,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
         {!selectedFile ? (
           <label htmlFor="resumeUpload" className="cursor-pointer">
             <div className="flex flex-col items-center space-y-4">
-              <div className="p-4 bg-purple-500/75 rounded-full">
+              <div className="p-4 bg-green-400/75 rounded-full">
                 <Upload className="w-8 h-8 text-white" />
               </div>
               <div className="text-center space-y-2">
@@ -114,7 +114,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
             <button
               onClick={onAnalyze}
               disabled={isAnalyzing}
-              className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isAnalyzing ? (
                 <>

@@ -92,7 +92,7 @@ export const AnalysisDisplay: React.FC<AnalysisDisplayProps> = ({ result }) => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg">
-              <TrendingUp className="w-6 h-6 text-purple-600" />
+              <TrendingUp className="w-6 h-6 text-green-600" />
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900">Resume Rating</h3>
@@ -111,7 +111,7 @@ export const AnalysisDisplay: React.FC<AnalysisDisplayProps> = ({ result }) => {
 
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-          <Star className="w-6 h-6 text-purple-600" />
+          <Star className="w-6 h-6 text-green-600" />
           Detailed Ratings
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -125,7 +125,7 @@ export const AnalysisDisplay: React.FC<AnalysisDisplayProps> = ({ result }) => {
 
       <div className="rounded-xl border border-gray-200 space-y-6 p-6">
         <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-          <Target className="w-6 h-6 text-purple-600" />
+          <Target className="w-6 h-6 text-green-600" />
           Detailed Analysis
         </h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -138,15 +138,15 @@ export const AnalysisDisplay: React.FC<AnalysisDisplayProps> = ({ result }) => {
       </div>
 
       {result.recommendations.length > 0 && (
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6">
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200 p-6">
           <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <Lightbulb className="w-6 h-6 text-purple-600" />
+            <Lightbulb className="w-6 h-6 text-green-600" />
             Key Recommendations
           </h3>
           <div className="space-y-4">
             {result.recommendations.map((recommendation, index) => (
               <div key={index} className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <div className="flex-shrink-0 w-6 h-6 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                   {index + 1}
                 </div>
                 <p className="text-gray-700 leading-relaxed">{recommendation}</p>
