@@ -77,7 +77,7 @@ export default function AnalysisPage() {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Resume Analysis</h2>
-                <p className="text-gray-500">Here's your comprehensive resume analysis</p>
+                <p className="text-gray-500">Here&apos;s your comprehensive resume analysis</p>
               </div>
               <button
                 onClick={() => router.push('/')}
