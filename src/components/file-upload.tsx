@@ -67,6 +67,8 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           }`}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
+        role="region"
+        aria-label="Resume upload area"
       >
         <input
           type="file"
@@ -75,6 +77,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           className="hidden"
           id="resumeUpload"
           disabled={isAnalyzing}
+          aria-describedby="uploadHelp"
         />
 
         {!selectedFile ? (
@@ -86,7 +89,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
               <div className="text-center space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Upload Your Resume</h3>
                 <p className="text-gray-600">Drop your resume here or choose a file.</p>
-                <div className="text-sm text-gray-500">PDF & DOCX only. Max 10MB file size.</div>
+                <div id="uploadHelp" className="text-sm text-gray-500">PDF, DOCX, or TXT. Max 10MB.</div>
                 <div className="flex items-center space-x-2 text-sm text-gray-500">
                   <LockIcon className="w-4 h-4 flex-shrink-0 text-black" />
                   <span className="text-black">Privacy guaranteed. Your file is never stored.</span>
@@ -115,6 +118,8 @@ export const FileUpload: React.FC<FileUploadProps> = ({
               onClick={onAnalyze}
               disabled={isAnalyzing}
               className="w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              aria-busy={isAnalyzing}
+              aria-live="polite"
             >
               {isAnalyzing ? (
                 <>
