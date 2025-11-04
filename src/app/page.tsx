@@ -124,7 +124,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Smart Analysis</h3>
                   <p className="text-gray-600 text-center leading-relaxed">
-                    Powerful analysis to evaluate your resume's strengths and areas for improvement
+                    Powerful analysis to evaluate your resume&apos;s strengths and areas for improvement
                   </p>
                 </div>
 
