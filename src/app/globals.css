@@ -1,26 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #7c3aed;
-  --primary-light: #a855f7;
-  --primary-dark: #5b21b6;
-  --primary-50: #faf5ff;
-  --primary-100: #f3e8ff;
-  --primary-200: #e9d5ff;
-  --primary-500: #a855f7;
-  --primary-600: #9333ea;
-  --primary-700: #7c3aed;
-  --primary-800: #6b21a8;
-  --primary-900: #581c87;
+  --primary: #16a34a;
+  --primary-50: #f0fdf4;
+  --primary-100: #dcfce7;
+  --primary-200: #bbf7d0;
+  --primary-500: #22c55e;
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
+  --primary-800: #166534;
+  --primary-900: #14532d;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Nunito', sans-serif;
   min-height: 100vh;
 }
 
