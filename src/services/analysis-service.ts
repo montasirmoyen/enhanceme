@@ -1,4 +1,4 @@
-import { AnalysisResult, ApiResponse } from '@/types/analysis';
+import { AnalysisResult, ApiResponse, ResumeSchema } from '@/types/analysis';
 
 export class AnalysisService {
   static createMockAnalysis(): AnalysisResult {
@@ -77,7 +77,54 @@ export class AnalysisService {
         "Add any relevant certifications or professional development"
       ],
       summary: "[MOCK-DATA] Your resume shows good potential with clear experience and relevant skills. The main areas for improvement are adding more quantifiable achievements and optimizing for ATS systems. With some strategic enhancements, this resume will be much more competitive.",
-      overallScore: 5
+      overallScore: 5,
+      resume: {
+        basics: {
+          name: "Alex Candidate",
+          headline: "Full-Stack Developer",
+          email: "alex@example.com",
+          phone: "+1 (555) 555-5555",
+          location: "Remote",
+          links: [{ label: "GitHub", url: "https://github.com/example" }],
+          summary: "Developer with 4+ years building web apps with React, Node.js, and cloud."
+        },
+        skills: [
+          { name: "Frontend", keywords: ["React","Next.js","TypeScript"] },
+          { name: "Backend", keywords: ["Node.js","Express","PostgreSQL"] }
+        ],
+        experience: [
+          {
+            company: "Acme Corp",
+            role: "Software Engineer",
+            location: "Remote",
+            startDate: "2022-01",
+            endDate: "2024-03",
+            current: false,
+            bullets: [
+              "Built features in React/Next.js improving conversion by 12%",
+              "Led migration to PostgreSQL with zero downtime"
+            ]
+          }
+        ],
+        education: [
+          {
+            institution: "State University",
+            degree: "B.Sc.",
+            area: "Computer Science",
+            startDate: "2018-08",
+            endDate: "2022-05",
+            details: ["GPA 3.7/4.0"]
+          }
+        ],
+        projects: [
+          {
+            name: "Portfolio",
+            description: "Personal portfolio with blog",
+            bullets: ["SEO-optimized, responsive design"],
+            link: "https://example.com"
+          }
+        ]
+      }
     };
   }
   
@@ -126,6 +173,9 @@ export class AnalysisService {
         throw new Error(data.error || 'Failed to analyze resume');
       }
 
+      try {
+        sessionStorage.setItem('lastResumeText', resumeText);
+      } catch {}
       return data.analysis;
     } catch (error) {
       console.error('Analysis failed:', error);

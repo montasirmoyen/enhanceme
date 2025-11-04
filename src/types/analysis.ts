@@ -26,6 +26,7 @@ export interface AnalysisResult {
   recommendations: string[];
   summary: string;
   overallScore: number;
+  resume?: ResumeSchema;
 }
 
 export interface ApiResponse {
@@ -44,4 +45,35 @@ export interface AnalysisState {
   isAnalyzing: boolean;
   result: AnalysisResult | null;
   error: string | null;
+}
+
+export interface ResumeSchema {
+  basics: {
+    name: string;
+    headline?: string;
+    email?: string;
+    phone?: string;
+    location?: string;
+    links?: { label: string; url: string }[];
+    summary?: string;
+  };
+  skills: { name: string; level?: string; keywords?: string[] }[];
+  experience: {
+    company: string;
+    role: string;
+    location?: string;
+    startDate?: string;
+    endDate?: string;
+    current?: boolean;
+    bullets: string[];
+  }[];
+  education: {
+    institution: string;
+    degree?: string;
+    area?: string;
+    startDate?: string;
+    endDate?: string;
+    details?: string[];
+  }[];
+  projects?: { name: string; description?: string; bullets?: string[]; link?: string }[];
 }
